@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         init();
         show_splash();
         glide();
@@ -41,17 +44,16 @@ public class MainActivity extends AppCompatActivity {
     void glide() {
 
 
-        /*Glide.with(_this).load("").apply(new RequestOptions().placeholder(getImage("topright"))).into(takalif);
+        Glide.with(_this).load(R.drawable.topright).into(takalif);
         Glide.with(_this).load(R.drawable.topleft).into(azmoon);
-        Glide.with(_this).load(getImage("center")).into(payam);
-        Glide.with(_this).load(getImage("bottomright")).into(vaziat);
-        Glide.with(_this).load(getImage("bottomleft")).into(daneshjoo);
-        Glide.with(_this).load(getImage("img_viewpager_main")).into(img_title);*/
+        Glide.with(_this).load(R.drawable.center).into(payam);
+        Glide.with(_this).load(R.drawable.bottomright).into(vaziat);
+        Glide.with(_this).load(R.drawable.bottomleft).into(daneshjoo);
+        Glide.with(_this).load(R.drawable.img_viewpager_main).into(img_title);
     }
 
     void show_splash() {
 
-        setContentView(R.layout.activity_main);
         Fragment splash;
         splash = new SplashFragment();
         fm = getSupportFragmentManager();
