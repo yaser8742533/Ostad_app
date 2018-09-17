@@ -30,13 +30,12 @@ public class JalasatAdapter extends RecyclerView.Adapter<JalasatAdapter.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        /*holder.moshahede.setOnClickListener(new View.OnClickListener() {
+        holder.moshahede.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.show_jalasat();
+                context.show_azmoon();
             }
         });
-*/
 
     }
 

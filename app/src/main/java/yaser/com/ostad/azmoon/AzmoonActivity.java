@@ -26,7 +26,7 @@ public class AzmoonActivity extends AppCompatActivity {
 
     FragmentManager fm;
     AzmoonActivity _this = this;
-    Fragment dore_ha, jalasat, login;
+    Fragment dore_ha, jalasat, azmoon;
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
@@ -65,15 +65,15 @@ public class AzmoonActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack("jalasat");
         fragmentTransaction.commit();
     }
-/*
-    public void show_login() {
-        login = new LoginFragment();
+
+    public void show_azmoon() {
+        azmoon = new AzmoonFragment();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.enter, R.animator.exit);
-        fragmentTransaction.replace(R.id.frame_main, login, "login");
+        fragmentTransaction.replace(R.id.frame_azmoon, azmoon, "azmoon");
         fragmentTransaction.commit();
     }
-
+/*
     public void close_login() {
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.remove(login);
