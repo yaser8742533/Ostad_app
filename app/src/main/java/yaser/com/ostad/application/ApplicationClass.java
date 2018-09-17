@@ -1,4 +1,4 @@
-package yaser.com.ostad;
+package yaser.com.ostad.application;
 
 import android.app.Application;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.content.Context;
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
+import yaser.com.ostad.R;
 
 public class ApplicationClass extends Application {
 
