@@ -34,6 +34,7 @@ public class JalasatFragment extends Fragment {
     }
 
     void set_data() {
+        detailsList.clear();
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

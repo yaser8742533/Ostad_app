@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import yaser.com.ostad.R;
 import yaser.com.ostad.azmoon.AzmoonActivity;
 
-public class AzmoonNadadeFragment extends Fragment {
+public class AzmoonDadeFragment extends Fragment {
 
     RecyclerView recyclerView;
 
@@ -41,7 +41,7 @@ public class AzmoonNadadeFragment extends Fragment {
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        AzmoonNadadeAdapter adapter = new AzmoonNadadeAdapter((AzmoonActivity) getActivity(), detailsList);
+        AzmoonDadeAdapter adapter = new AzmoonDadeAdapter((AzmoonActivity) getActivity(), detailsList);
         recyclerView.setAdapter(adapter);
         for (int i = 0; i < 10; i++) {
 

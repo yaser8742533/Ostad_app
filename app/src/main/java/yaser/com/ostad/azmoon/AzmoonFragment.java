@@ -51,6 +51,8 @@ public class AzmoonFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
         MyGlobals.applyFontedTab(getActivity(), viewPager, tabLayout);
 
+        viewPager.setCurrentItem(1);
+
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override

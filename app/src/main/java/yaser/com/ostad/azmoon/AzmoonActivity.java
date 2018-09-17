@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
@@ -27,7 +28,8 @@ public class AzmoonActivity extends AppCompatActivity {
     FragmentManager fm;
     AzmoonActivity _this = this;
     Fragment dore_ha, jalasat, azmoon;
-    Toolbar toolbar;
+    public Toolbar toolbar;
+    public TextView toolbar_title;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
 
@@ -43,6 +45,7 @@ public class AzmoonActivity extends AppCompatActivity {
     void init() {
 
         toolbar = findViewById(R.id.azmoon_toolbar);
+        toolbar_title = findViewById(R.id.title_toolbar);
 
     }
 
@@ -61,7 +64,7 @@ public class AzmoonActivity extends AppCompatActivity {
         jalasat = new JalasatFragment();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.enter, R.animator.exit);
-        fragmentTransaction.replace(R.id.frame_azmoon, jalasat, "jalasat");
+        fragmentTransaction.add(R.id.frame_azmoon, jalasat, "jalasat");
         fragmentTransaction.addToBackStack("jalasat");
         fragmentTransaction.commit();
     }
@@ -70,7 +73,7 @@ public class AzmoonActivity extends AppCompatActivity {
         azmoon = new AzmoonFragment();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.enter, R.animator.exit);
-        fragmentTransaction.replace(R.id.frame_azmoon, azmoon, "azmoon");
+        fragmentTransaction.add(R.id.frame_azmoon, azmoon, "azmoon");
         fragmentTransaction.commit();
     }
 /*

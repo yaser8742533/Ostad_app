@@ -16,7 +16,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             fragment = new AzmoonNadadeFragment();
         } else if (position == 1) {
-            fragment = new AzmoonNadadeFragment();
+            fragment = new AzmoonDadeFragment();
         }
         return fragment;
     }
