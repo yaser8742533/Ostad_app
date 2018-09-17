@@ -26,18 +26,13 @@ public class PhoneFragment extends Fragment {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                close_phone();
+                ((MainActivity) getActivity()).show_login();
             }
         });
 
         return view;
     }
 
-    public void close_phone() {
-        Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag("phone");
-        if (fragment != null)
-            getActivity().getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-    }
 
     public int getImage(String imageName) {
 
