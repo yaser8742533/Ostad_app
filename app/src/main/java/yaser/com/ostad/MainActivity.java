@@ -2,6 +2,7 @@ package yaser.com.ostad;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
@@ -10,17 +11,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
+import yaser.com.ostad.azmoon.AzmoonActivity;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    ConstraintLayout container;
     private final int SPLASH_DISPLAY_LENGTH = 1500;
+    ConstraintLayout container;
     FragmentManager fm;
     ImageView takalif, azmoon, payam, vaziat, daneshjoo, img_title;
     MainActivity _this = this;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         init();
         show_splash();
         glide();
+        click();
     }
 
     void init() {
@@ -99,6 +103,16 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.remove(login);
         fragmentTransaction.commit();
+    }
+
+    void click() {
+        azmoon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(_this, AzmoonActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     @Override
