@@ -27,6 +27,7 @@ import com.bumptech.glide.Glide;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
 import yaser.com.ostad.activity.azmoon.AzmoonActivity;
+import yaser.com.ostad.activity.listdaneshjoo.DaneshjooyanActivity;
 import yaser.com.ostad.activity.profile.ProfileActivity;
 import yaser.com.ostad.library.RtLizerLibrary.ActionBarRtlizer;
 import yaser.com.ostad.library.RtLizerLibrary.RtlizeEverything;
@@ -144,6 +145,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        daneshjoo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(_this, DaneshjooyanActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     @Override
@@ -219,6 +228,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        tv_daneshjoo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, DaneshjooyanActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
     }
 
