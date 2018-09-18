@@ -1,4 +1,4 @@
-package yaser.com.ostad;
+package yaser.com.ostad.activity.main;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

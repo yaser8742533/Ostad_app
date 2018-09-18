@@ -1,4 +1,4 @@
-package yaser.com.ostad.azmoon;
+package yaser.com.ostad.activity.azmoon;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import yaser.com.ostad.R;
 import yaser.com.ostad.application.MyGlobals;
-import yaser.com.ostad.azmoon.viewpager.ViewPagerAdapter;
+import yaser.com.ostad.activity.azmoon.viewpager.ViewPagerAdapter;
 
 public class AzmoonFragment extends Fragment {
 

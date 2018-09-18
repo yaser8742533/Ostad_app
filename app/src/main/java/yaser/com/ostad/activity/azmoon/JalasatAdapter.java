@@ -1,4 +1,4 @@
-package yaser.com.ostad.azmoon.viewpager;
+package yaser.com.ostad.activity.azmoon;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,41 +9,33 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 import yaser.com.ostad.R;
-import yaser.com.ostad.azmoon.AzmoonActivity;
 
-public class AzmoonDadeAdapter extends RecyclerView.Adapter<AzmoonDadeAdapter.ViewHolder> {
+public class JalasatAdapter extends RecyclerView.Adapter<JalasatAdapter.ViewHolder> {
 
     AzmoonActivity context;
     View itemView;
     ArrayList<Integer> arrayList;
 
-    public AzmoonDadeAdapter(AzmoonActivity context, ArrayList<Integer> arrayList) {
+    public JalasatAdapter(AzmoonActivity context, ArrayList<Integer> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.azmoon_dade_listitem, parent, false);
+        itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.jalasat_listitem, parent, false);
         return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        if (position >= 5) {
-            holder.moshahede.setBackgroundColor(context.getResources().getColor(R.color.red));
-            holder.moshahede.setText("تصحیح نشده");
-            holder.moshahede.setEnabled(false);
-        }
-
         holder.moshahede.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.show_daneshjoo();
+                context.show_azmoon();
             }
         });
-
 
     }
 
@@ -64,6 +56,7 @@ public class AzmoonDadeAdapter extends RecyclerView.Adapter<AzmoonDadeAdapter.Vi
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
+
 
         Button moshahede;
 

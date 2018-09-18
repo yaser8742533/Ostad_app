@@ -1,4 +1,4 @@
-package yaser.com.ostad;
+package yaser.com.ostad.activity.main;
 
 
 import android.content.Context;
@@ -17,7 +17,8 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
-import yaser.com.ostad.azmoon.AzmoonActivity;
+import yaser.com.ostad.R;
+import yaser.com.ostad.activity.azmoon.AzmoonActivity;
 
 public class MainActivity extends AppCompatActivity {
 

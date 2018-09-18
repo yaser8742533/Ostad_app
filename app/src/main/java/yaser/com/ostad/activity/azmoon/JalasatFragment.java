@@ -1,4 +1,4 @@
-package yaser.com.ostad.azmoon.viewpager;
+package yaser.com.ostad.activity.azmoon;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import yaser.com.ostad.R;
-import yaser.com.ostad.azmoon.AzmoonActivity;
 
-public class AzmoonDadeFragment extends Fragment {
+public class JalasatFragment extends Fragment {
 
     RecyclerView recyclerView;
 
@@ -22,7 +21,7 @@ public class AzmoonDadeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_azmoon_ha, container, false);
+        view = inflater.inflate(R.layout.fragment_jalasat, container, false);
 
         init();
         set_data();
@@ -31,7 +30,7 @@ public class AzmoonDadeFragment extends Fragment {
 
 
     void init() {
-        recyclerView = view.findViewById(R.id.rcl_azmoonha);
+        recyclerView = view.findViewById(R.id.rcl_jalasat);
     }
 
     void set_data() {
@@ -41,8 +40,10 @@ public class AzmoonDadeFragment extends Fragment {
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        AzmoonDadeAdapter adapter = new AzmoonDadeAdapter((AzmoonActivity) getActivity(), detailsList);
+        JalasatAdapter adapter = new JalasatAdapter((AzmoonActivity) getActivity(), detailsList);
         recyclerView.setAdapter(adapter);
+
+
         for (int i = 0; i < 10; i++) {
 
             detailsList.add(i);

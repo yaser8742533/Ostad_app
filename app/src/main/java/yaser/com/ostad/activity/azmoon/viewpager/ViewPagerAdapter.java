@@ -1,4 +1,4 @@
-package yaser.com.ostad.azmoon.viewpager;
+package yaser.com.ostad.activity.azmoon.viewpager;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

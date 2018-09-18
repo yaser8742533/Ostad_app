@@ -1,4 +1,4 @@
-package yaser.com.ostad.azmoon;
+package yaser.com.ostad.activity.azmoon;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

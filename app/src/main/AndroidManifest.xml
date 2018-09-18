@@ -11,7 +11,7 @@
         android:name=".application.ApplicationClass"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
         </activity>
 
         <activity
-            android:name=".azmoon.AzmoonActivity"
+            android:name=".activity.azmoon.AzmoonActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.AZMOON" />
