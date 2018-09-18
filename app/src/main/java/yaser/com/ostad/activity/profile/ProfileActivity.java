@@ -1,12 +1,9 @@
-package yaser.com.ostad.activity.azmoon;
+package yaser.com.ostad.activity.profile;
 
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,21 +13,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
 import yaser.com.ostad.library.RtLizerLibrary.ActionBarRtlizer;
 import yaser.com.ostad.library.RtLizerLibrary.RtlizeEverything;
 
-public class AzmoonActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
 
-    FragmentManager fm;
-    AzmoonActivity _this = this;
-    Fragment dore_ha, jalasat, azmoon, daneshjoo;
     public Toolbar toolbar;
-    public TextView toolbar_title;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     ImageView bck;
@@ -38,17 +30,15 @@ public class AzmoonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_azmoon);
+        setContentView(R.layout.activity_profile);
         init();
         createLayout();
-        show_dore_ha();
         click();
     }
 
     void init() {
 
-        toolbar = findViewById(R.id.azmoon_toolbar);
-        toolbar_title = findViewById(R.id.title_toolbar);
+        toolbar = findViewById(R.id.profile_toolbar);
         bck = findViewById(R.id.bck);
 
     }
@@ -62,43 +52,6 @@ public class AzmoonActivity extends AppCompatActivity {
         });
     }
 
-    void show_dore_ha() {
-
-        dore_ha = new DoreHaFragment();
-        fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.add(R.id.frame_azmoon, dore_ha);
-        fragmentTransaction.commit();
-
-    }
-
-    void show_jalasat() {
-        jalasat = new JalasatFragment();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
-        fragmentTransaction.add(R.id.frame_azmoon, jalasat, "jalasat");
-        fragmentTransaction.addToBackStack("jalasat");
-        fragmentTransaction.commit();
-    }
-
-    public void show_azmoon() {
-        azmoon = new AzmoonFragment();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
-        fragmentTransaction.add(R.id.frame_azmoon, azmoon, "azmoon");
-        fragmentTransaction.addToBackStack("azmoon");
-        fragmentTransaction.commit();
-    }
-
-    public void show_daneshjoo() {
-        daneshjoo = new AzmoonDaneshjooFragment();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
-        fragmentTransaction.add(R.id.frame_azmoon, daneshjoo, "daneshjoo");
-        fragmentTransaction.addToBackStack("daneshjoo");
-        fragmentTransaction.commit();
-    }
-
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
@@ -108,7 +61,7 @@ public class AzmoonActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        ActionBarRtlizer rtlizer = new ActionBarRtlizer(this, String.valueOf(R.id.azmoon_toolbar));
+        ActionBarRtlizer rtlizer = new ActionBarRtlizer(this, String.valueOf(R.id.profile_toolbar));
         ViewGroup homeView = (ViewGroup) rtlizer.getHomeView();
         RtlizeEverything.rtlize(rtlizer.getActionBarView());
         if (rtlizer.getHomeViewContainer() instanceof ViewGroup) {

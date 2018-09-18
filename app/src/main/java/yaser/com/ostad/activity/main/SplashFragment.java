@@ -9,6 +9,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import yaser.com.ostad.R;
+
 
 public class SplashFragment extends Fragment {
 
