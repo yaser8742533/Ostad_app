@@ -1,4 +1,4 @@
-package yaser.com.ostad.viewpager;
+package yaser.com.ostad.azmoon.viewpager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import yaser.com.ostad.R;
 import yaser.com.ostad.azmoon.AzmoonActivity;
 
-public class AzmoonDadeFragment extends Fragment {
+public class AzmoonNadadeFragment extends Fragment {
 
     RecyclerView recyclerView;
 
@@ -41,7 +41,7 @@ public class AzmoonDadeFragment extends Fragment {
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        AzmoonDadeAdapter adapter = new AzmoonDadeAdapter((AzmoonActivity) getActivity(), detailsList);
+        AzmoonNadadeAdapter adapter = new AzmoonNadadeAdapter((AzmoonActivity) getActivity(), detailsList);
         recyclerView.setAdapter(adapter);
         for (int i = 0; i < 10; i++) {
 

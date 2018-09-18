@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import yaser.com.ostad.R;
 import yaser.com.ostad.application.MyGlobals;
-import yaser.com.ostad.viewpager.ViewPagerAdapter;
+import yaser.com.ostad.azmoon.viewpager.ViewPagerAdapter;
 
 public class AzmoonFragment extends Fragment {
 

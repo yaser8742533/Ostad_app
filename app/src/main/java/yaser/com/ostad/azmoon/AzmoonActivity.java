@@ -27,7 +27,7 @@ public class AzmoonActivity extends AppCompatActivity {
 
     FragmentManager fm;
     AzmoonActivity _this = this;
-    Fragment dore_ha, jalasat, azmoon;
+    Fragment dore_ha, jalasat, azmoon, daneshjoo;
     public Toolbar toolbar;
     public TextView toolbar_title;
     DrawerLayout drawerLayout;
@@ -63,7 +63,7 @@ public class AzmoonActivity extends AppCompatActivity {
     void show_jalasat() {
         jalasat = new JalasatFragment();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.enter, R.animator.exit);
+        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
         fragmentTransaction.add(R.id.frame_azmoon, jalasat, "jalasat");
         fragmentTransaction.addToBackStack("jalasat");
         fragmentTransaction.commit();
@@ -72,16 +72,20 @@ public class AzmoonActivity extends AppCompatActivity {
     public void show_azmoon() {
         azmoon = new AzmoonFragment();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.enter, R.animator.exit);
+        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
         fragmentTransaction.add(R.id.frame_azmoon, azmoon, "azmoon");
+        fragmentTransaction.addToBackStack("azmoon");
         fragmentTransaction.commit();
     }
-/*
-    public void close_login() {
+
+    public void show_daneshjoo() {
+        daneshjoo = new AzmoonDaneshjooFragment();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.remove(login);
+        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
+        fragmentTransaction.add(R.id.frame_azmoon, daneshjoo, "daneshjoo");
+        fragmentTransaction.addToBackStack("daneshjoo");
         fragmentTransaction.commit();
-    }*/
+    }
 
     @Override
     protected void attachBaseContext(Context newBase) {

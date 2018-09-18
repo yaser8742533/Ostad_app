@@ -1,4 +1,4 @@
-package yaser.com.ostad.viewpager;
+package yaser.com.ostad.azmoon.viewpager;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,8 +50,6 @@ public class AzmoonNadadeAdapter extends RecyclerView.Adapter<AzmoonNadadeAdapte
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-
-
 
 
         public ViewHolder(View view) {

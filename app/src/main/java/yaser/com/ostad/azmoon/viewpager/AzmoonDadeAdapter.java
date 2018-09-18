@@ -1,4 +1,4 @@
-package yaser.com.ostad.viewpager;
+package yaser.com.ostad.azmoon.viewpager;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,8 +34,15 @@ public class AzmoonDadeAdapter extends RecyclerView.Adapter<AzmoonDadeAdapter.Vi
         if (position >= 5) {
             holder.moshahede.setBackgroundColor(context.getResources().getColor(R.color.red));
             holder.moshahede.setText("تصحیح نشده");
-            holder.moshahede.setClickable(false);
+            holder.moshahede.setEnabled(false);
         }
+
+        holder.moshahede.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.show_daneshjoo();
+            }
+        });
 
 
     }
