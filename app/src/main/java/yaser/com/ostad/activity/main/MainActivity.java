@@ -28,6 +28,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
 import yaser.com.ostad.activity.azmoon.AzmoonActivity;
 import yaser.com.ostad.activity.listdaneshjoo.DaneshjooyanActivity;
+import yaser.com.ostad.activity.message.MessageActivity;
 import yaser.com.ostad.activity.profile.ProfileActivity;
 import yaser.com.ostad.library.RtLizerLibrary.ActionBarRtlizer;
 import yaser.com.ostad.library.RtLizerLibrary.RtlizeEverything;
@@ -150,6 +151,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(_this, DaneshjooyanActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        payam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(_this, MessageActivity.class);
                 startActivity(myIntent);
             }
         });

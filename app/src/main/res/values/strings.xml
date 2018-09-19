@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Ostad</string>
+
+    <string name="action_delete">حذف</string>
+    <string name="action_copy">کپی</string>
+    <string name="start_typing_status">درحال تایپ</string>
+    <string name="stop_typing_status">توقف تایپ</string>
+    <string name="copied_message">پیام کپی شد!</string>
+
 </resources>
