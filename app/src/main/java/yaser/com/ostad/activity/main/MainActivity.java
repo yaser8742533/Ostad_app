@@ -1,7 +1,6 @@
 package yaser.com.ostad.activity.main;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,17 +11,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.glide.slider.library.Animations.DescriptionAnimation;
+import com.glide.slider.library.SliderLayout;
+import com.glide.slider.library.SliderTypes.TextSliderView;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
@@ -30,8 +28,6 @@ import yaser.com.ostad.activity.azmoon.AzmoonActivity;
 import yaser.com.ostad.activity.listdaneshjoo.DaneshjooyanActivity;
 import yaser.com.ostad.activity.message.MessageActivity;
 import yaser.com.ostad.activity.profile.ProfileActivity;
-import yaser.com.ostad.library.RtLizerLibrary.ActionBarRtlizer;
-import yaser.com.ostad.library.RtLizerLibrary.RtlizeEverything;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,13 +35,11 @@ public class MainActivity extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 1500;
     ConstraintLayout container;
     FragmentManager fm;
-    ImageView takalif, azmoon, payam, vaziat, daneshjoo, img_title;
+    ImageView takalif, azmoon, payam, vaziat, daneshjoo;
     MainActivity _this = this;
     Fragment splash, phone, login;
     Boolean doubleBackToExitPressedOnce = false;
-    Toolbar toolbar;
     DrawerLayout drawerLayout;
-    ActionBarDrawerToggle drawerToggle;
     TextView tv_profile, tv_payam, tv_takalif, tv_azmoon, tv_daneshjoo, tv_share, tv_about;
 
     @Override
@@ -55,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         init();
         show_splash();
         glide();
-        createLayout();
+        sliderinit();
         click();
         drawer_click();
     }
@@ -66,9 +60,7 @@ public class MainActivity extends AppCompatActivity {
         payam = findViewById(R.id.img_payam);
         vaziat = findViewById(R.id.img_vaziat);
         daneshjoo = findViewById(R.id.img_daneshjoo);
-        img_title = findViewById(R.id.img_title_menu);
         container = findViewById(R.id.frame_main);
-        toolbar = findViewById(R.id.main_toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
 
         ///drawer
@@ -90,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(_this).load(R.drawable.center).into(payam);
         Glide.with(_this).load(R.drawable.bottomright).into(vaziat);
         Glide.with(_this).load(R.drawable.bottomleft).into(daneshjoo);
-        Glide.with(_this).load(R.drawable.img_viewpager_main).into(img_title);
     }
 
     void show_splash() {
@@ -170,54 +161,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void createLayout() {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        ActionBarRtlizer rtlizer = new ActionBarRtlizer(this, String.valueOf(R.id.main_toolbar));
-        ViewGroup homeView = (ViewGroup) rtlizer.getHomeView();
-        RtlizeEverything.rtlize(rtlizer.getActionBarView());
-        if (rtlizer.getHomeViewContainer() instanceof ViewGroup) {
-            RtlizeEverything.rtlize((ViewGroup) rtlizer.getHomeViewContainer());
-        }
-        RtlizeEverything.rtlize(homeView);
-
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name) {
-            @SuppressLint("RtlHardcoded")
-            @Override
-            public boolean onOptionsItemSelected(MenuItem item) {
-                return false;
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-        };
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
-                    drawerLayout.closeDrawer(Gravity.RIGHT);
-                } else {
-                    drawerLayout.openDrawer(Gravity.RIGHT);
-                }
-            }
-        });
-
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setHomeButtonEnabled(true);
-
-        drawerLayout.setDrawerListener(drawerToggle);
-        drawerToggle.syncState();
-
-    }
-
     void drawer_click() {
         tv_azmoon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,6 +189,55 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    void sliderinit() {
+        SliderLayout sliderLayout = findViewById(R.id.slider);
+   /*     TextSliderView sliderView = new TextSliderView(_this);
+
+        sliderView
+                .image(R.drawable.bg_custom_incoming_message)
+                .setBackgroundColor(Color.WHITE)
+                .setProgressBarVisible(true);
+
+        //add your extra information
+        sliderView.bundle(new Bundle());
+        sliderView.getBundle().putString("extra", "متن ساختگی میباشد");
+        sliderLayout.addSlider(sliderView);*/
+
+
+        TextSliderView sliderView = new TextSliderView(this);
+
+        // initialize SliderLayout
+        sliderView
+                .image(R.drawable.img_viewpager_main)
+                .description("متن تست")
+                .setBackgroundColor(getResources().getColor(R.color.colorPrimary))
+                .setProgressBarVisible(true);
+
+        //add your extra information
+        sliderView.bundle(new Bundle());
+        sliderView.getBundle().putString("extra", "متن ساختگی میباشد");
+        sliderLayout.addSlider(sliderView);
+
+        TextSliderView sliderView2 = new TextSliderView(this);
+
+        // initialize SliderLayout
+        sliderView2
+                .image(R.drawable.no_title)
+                .setBackgroundColor(getResources().getColor(R.color.colorPrimary))
+                .description("متن تست")
+                .setProgressBarVisible(true);
+
+        //add your extra information
+        sliderView2.bundle(new Bundle());
+        sliderView2.getBundle().putString("extra", "متن ساختگی میباشد");
+        sliderLayout.addSlider(sliderView2);
+
+        sliderLayout.setPresetTransformer(SliderLayout.Transformer.Fade);
+        sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        sliderLayout.setCustomAnimation(new DescriptionAnimation());
+        sliderLayout.setDuration(3000);
     }
 
     @Override

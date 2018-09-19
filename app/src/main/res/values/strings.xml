@@ -7,4 +7,8 @@
     <string name="stop_typing_status">توقف تایپ</string>
     <string name="copied_message">پیام کپی شد!</string>
 
+
+    <string name="title1">شما در \"نام دوره\" 50 دانشجو دارید</string>
+    <string name="title2">شما در تمام دوره ها 150 دانشجو دارید</string>
+
 </resources>

@@ -42,4 +42,6 @@
     <color name="dialog_date_text">@color/warm_grey_two</color>
     <color name="gray_light">#e8e8e8</color>
 
+    <color name="glide_slider_indicator_color">@color/colorText1</color>
+
 </resources>
