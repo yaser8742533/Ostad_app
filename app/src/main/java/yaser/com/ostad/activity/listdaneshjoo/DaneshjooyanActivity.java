@@ -4,6 +4,9 @@ package yaser.com.ostad.activity.listdaneshjoo;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +15,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
@@ -26,6 +30,9 @@ public class DaneshjooyanActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     ImageView bck;
+    FragmentManager fm;
+    Fragment daneshjoo;
+    Button btn1, btn2, btn3, btn_all;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,10 @@ public class DaneshjooyanActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.daneshjoo_toolbar);
         bck = findViewById(R.id.bck);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
+        btn_all = findViewById(R.id.btn4);
 
     }
 
@@ -50,6 +61,43 @@ public class DaneshjooyanActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show_daneshjooyan("one");
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show_daneshjooyan("one");
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show_daneshjooyan("one");
+            }
+        });
+        btn_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show_daneshjooyan("all");
+            }
+        });
+    }
+
+    void show_daneshjooyan(String type) {
+        fm = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        bundle.putString("type", type);
+        daneshjoo = new DaneshjooyanFragment();
+        daneshjoo.setArguments(bundle);
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
+        fragmentTransaction.add(R.id.daneshjooyan_frame, daneshjoo, "daneshjoo");
+        fragmentTransaction.addToBackStack("daneshjoo");
+        fragmentTransaction.commit();
     }
 
     @Override

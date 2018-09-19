@@ -71,160 +71,167 @@
                 </RelativeLayout>
             </android.support.v7.widget.Toolbar>
 
-
-            <ScrollView
+            <FrameLayout
+                android:id="@+id/daneshjooyan_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/daneshjoo.toolbar">
 
 
-                <LinearLayout
-
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <RelativeLayout
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+
+                            <TextView
+                                android:id="@+id/tv_title1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="شما مدرس در 3 دوره میباشید"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="20dp"
+
+                                />
+
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="8dp"
+                                android:layout_toRightOf="@+id/tv_title1"
+                                android:src="@drawable/circle" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginTop="16dp"
+                            android:background="#85bdbdbd" />
 
                         <TextView
-                            android:id="@+id/tv_title1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="شما مدرس در 3 دوره میباشید"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="20dp"
-
-                            />
-
-                        <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="8dp"
-                            android:layout_toRightOf="@+id/tv_title1"
-                            android:src="@drawable/circle" />
-
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:layout_marginTop="16dp"
-                        android:background="#85bdbdbd" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="48dp"
-                        android:layout_marginRight="48dp"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="جهت مشاهده لیست دانشجویان دوره مورد نظر خودرا انتخاب کنید"
-                        android:textSize="18dp" />
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="48dp"
+                            android:layout_marginRight="48dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="جهت مشاهده لیست دانشجویان دوره مورد نظر خودرا انتخاب کنید"
+                            android:textSize="18dp" />
 
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:layout_marginTop="16dp"
-                        android:background="#85bdbdbd" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginTop="16dp"
+                            android:background="#85bdbdbd" />
 
-                    <Button
-                        android:id="@+id/btn1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:background="@drawable/curve_shape_green2"
-                        android:clickable="true"
-                        android:padding="16dp"
-                        android:text="مشاهده لیست دانشجویان دوره ، نام دوره"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
+                        <Button
+                            android:id="@+id/btn1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:background="@drawable/curve_shape_green2"
+                            android:clickable="true"
+                            android:padding="16dp"
+                            android:text="@string/title3"
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:layout_marginTop="16dp"
-                        android:background="#85bdbdbd" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginTop="16dp"
+                            android:background="#85bdbdbd" />
 
-                    <Button
-                        android:id="@+id/btn2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:background="@drawable/curve_shape_green2"
-                        android:clickable="true"
-                        android:padding="16dp"
-                        android:text="مشاهده لیست دانشجویان دوره ، نام دوره"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
+                        <Button
+                            android:id="@+id/btn2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:background="@drawable/curve_shape_green2"
+                            android:clickable="true"
+                            android:padding="16dp"
+                            android:text="@string/title3"
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:layout_marginTop="16dp"
-                        android:background="#85bdbdbd" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginTop="16dp"
+                            android:background="#85bdbdbd" />
 
-                    <Button
-                        android:id="@+id/btn3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:background="@drawable/curve_shape_green2"
-                        android:clickable="true"
-                        android:padding="16dp"
-                        android:text="مشاهده لیست دانشجویان دوره ، نام دوره"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
+                        <Button
+                            android:id="@+id/btn3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:background="@drawable/curve_shape_green2"
+                            android:clickable="true"
+                            android:padding="16dp"
+                            android:text="@string/title3"
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:layout_marginTop="16dp"
-                        android:background="#85bdbdbd" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginTop="16dp"
+                            android:background="#85bdbdbd" />
 
-                    <Button
-                        android:id="@+id/btn4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginRight="24dp"
-                        android:background="@drawable/curve_shape_green2"
-                        android:clickable="true"
-                        android:padding="16dp"
-                        android:text="مشاهده لیست دانشجویان تمامی دوره ها"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
+                        <Button
+                            android:id="@+id/btn4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:background="@drawable/curve_shape_green2"
+                            android:clickable="true"
+                            android:padding="16dp"
+                            android:text="مشاهده لیست دانشجویان تمامی دوره ها"
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
 
-                </LinearLayout>
+                    </LinearLayout>
 
-            </ScrollView>
+                </ScrollView>
+
+            </FrameLayout>
 
             <View
                 android:layout_width="match_parent"
