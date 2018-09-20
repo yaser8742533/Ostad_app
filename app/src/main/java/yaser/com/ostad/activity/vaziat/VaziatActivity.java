@@ -1,4 +1,4 @@
-package yaser.com.ostad.activity.azmoon;
+package yaser.com.ostad.activity.vaziat;
 
 
 import android.annotation.SuppressLint;
@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,38 +25,43 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import java.util.ArrayList;
+
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
 import yaser.com.ostad.library.RtLizerLibrary.ActionBarRtlizer;
 import yaser.com.ostad.library.RtLizerLibrary.RtlizeEverything;
 
-public class AzmoonActivity extends AppCompatActivity {
+public class VaziatActivity extends AppCompatActivity {
 
 
-    FragmentManager fm;
-    AzmoonActivity _this = this;
-    Fragment dore_ha, jalasat, azmoon, daneshjoo;
     public Toolbar toolbar;
     public TextSwitcher toolbar_title;
+    FragmentManager fm;
+    VaziatActivity _this = this;
+    Fragment daneshjoo;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     ImageView bck;
+    RecyclerView recyclerView;
+    ArrayList<Integer> detailsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_azmoon);
+        setContentView(R.layout.activity_vaziat);
         init();
         createLayout();
-        show_dore_ha();
+        set_data();
         click();
     }
 
     void init() {
 
-        toolbar = findViewById(R.id.azmoon_toolbar);
+        toolbar = findViewById(R.id.vaziat_toolbar);
         toolbar_title = findViewById(R.id.title_toolbar);
         bck = findViewById(R.id.bck);
+        recyclerView = findViewById(R.id.rcl_vaziat);
 
     }
 
@@ -67,44 +74,19 @@ public class AzmoonActivity extends AppCompatActivity {
         });
     }
 
-    void show_dore_ha() {
-
-        dore_ha = new DoreHaFragment();
-        fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.add(R.id.frame_azmoon, dore_ha);
-        fragmentTransaction.commit();
-
-    }
-
-    void show_jalasat() {
-        jalasat = new JalasatFragment();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
-        fragmentTransaction.add(R.id.frame_azmoon, jalasat, "jalasat");
-        fragmentTransaction.addToBackStack("jalasat");
-        fragmentTransaction.commit();
-    }
-
-    public void show_azmoon() {
-        azmoon = new AzmoonFragment();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
-        fragmentTransaction.add(R.id.frame_azmoon, azmoon, "azmoon");
-        fragmentTransaction.addToBackStack("azmoon");
-        fragmentTransaction.commit();
-    }
-
-    public void show_daneshjoo() {
+    void show_vaziat() {
 
         toolbar_title.setText("نام دانشجو");
-        daneshjoo = new AzmoonDaneshjooFragment();
+        daneshjoo = new VaziatFragment();
+        fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
-        fragmentTransaction.add(R.id.frame_azmoon, daneshjoo, "daneshjoo");
-        fragmentTransaction.addToBackStack("daneshjoo");
+        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.enter, R.animator.exit);
+        fragmentTransaction.add(R.id.frame_vaziat, daneshjoo);
+        fragmentTransaction.addToBackStack("vasiat");
         fragmentTransaction.commit();
+
     }
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -115,7 +97,7 @@ public class AzmoonActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        ActionBarRtlizer rtlizer = new ActionBarRtlizer(this, String.valueOf(R.id.azmoon_toolbar));
+        ActionBarRtlizer rtlizer = new ActionBarRtlizer(this, String.valueOf(R.id.vaziat_toolbar));
         ViewGroup homeView = (ViewGroup) rtlizer.getHomeView();
         RtlizeEverything.rtlize(rtlizer.getActionBarView());
         if (rtlizer.getHomeViewContainer() instanceof ViewGroup) {
@@ -174,7 +156,30 @@ public class AzmoonActivity extends AppCompatActivity {
         outAnim.setDuration(500);
         toolbar_title.setInAnimation(inAnim);
         toolbar_title.setOutAnimation(outAnim);
-        toolbar_title.setText("آزمون ها");
+        toolbar_title.setText("وضعیت فعلی دانشجویان");
+
+    }
+
+    void set_data() {
+        detailsList.clear();
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(_this);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(mLayoutManager);
+
+        VaziatAdapter adapter = new VaziatAdapter(_this, detailsList);
+        recyclerView.setAdapter(adapter);
+
+
+        for (int i = 0; i < 45; i++) {
+
+            detailsList.add(i);
+            adapter.notifyDataSetChanged();
+
+        }
+        adapter.notifyDataSetChanged();
+
+
     }
 
 
@@ -187,10 +192,8 @@ public class AzmoonActivity extends AppCompatActivity {
             if (count == 0) {
                 super.onBackPressed();
             } else {
-                if (count == 3) {
-                    toolbar_title.setText("آزمون ها");
-                }
                 getSupportFragmentManager().popBackStack();
+                toolbar_title.setText("وضعیت فعلی دانشجویان");
             }
         }
     }

@@ -12,11 +12,17 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextSwitcher;
+import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
@@ -27,12 +33,14 @@ public class DaneshjooyanActivity extends AppCompatActivity {
 
 
     public Toolbar toolbar;
+    public TextSwitcher toolbar_title;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     ImageView bck;
     FragmentManager fm;
     Fragment daneshjoo;
     Button btn1, btn2, btn3, btn_all;
+    DaneshjooyanActivity _this = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +59,7 @@ public class DaneshjooyanActivity extends AppCompatActivity {
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
         btn_all = findViewById(R.id.btn4);
+        toolbar_title = findViewById(R.id.title_toolbar);
 
     }
 
@@ -151,6 +160,25 @@ public class DaneshjooyanActivity extends AppCompatActivity {
 
         drawerLayout.setDrawerListener(drawerToggle);
         drawerToggle.syncState();
+
+        toolbar_title.setFactory(new ViewSwitcher.ViewFactory() {
+            public View makeView() {
+                LayoutInflater inflater = LayoutInflater.from(_this);
+                TextView textView = (TextView) inflater.inflate(R.layout.textswitcher_textview, null);
+                return textView;
+            }
+        });
+
+        Animation inAnim = AnimationUtils.loadAnimation(this,
+                android.R.anim.slide_in_left);
+        Animation outAnim = AnimationUtils.loadAnimation(this,
+                android.R.anim.slide_out_right);
+        inAnim.setDuration(500);
+        outAnim.setDuration(500);
+        toolbar_title.setInAnimation(inAnim);
+        toolbar_title.setOutAnimation(outAnim);
+        toolbar_title.setText("لیست دانشجویان");
+
 
     }
 

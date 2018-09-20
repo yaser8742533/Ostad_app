@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,6 @@ public class DoreHaFragment extends Fragment {
     RecyclerView recyclerView;
 
     ArrayList<Integer> detailsList = new ArrayList<>();
-    FrameLayout container_doreha;
     View view;
 
     @Override
@@ -33,7 +31,6 @@ public class DoreHaFragment extends Fragment {
 
     void init() {
         recyclerView = view.findViewById(R.id.rcl_dore_ha);
-        container_doreha = view.findViewById(R.id.container_doreha);
     }
 
     void set_data() {
