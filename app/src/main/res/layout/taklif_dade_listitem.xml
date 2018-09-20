@@ -12,7 +12,7 @@
     app:cardElevation="2dp">
 
     <RelativeLayout
-        android:id="@+id/main_dore_ha_listitem"
+        android:id="@+id/main_azmoon_nadade_listitem"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,22 +22,33 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="8dp"
-            android:text="نام دوره های آموزشی"
+            android:text="نام دانشجو"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
+        <ImageView
+            android:id="@+id/img_alert"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/moshahede"
+            android:src="@drawable/alert"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/moshahede"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@drawable/curve_shape_btn2"
+            android:background="@color/colorPrimaryLight"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:text="مشاهده اطلاعات"
+            android:text="مشاهده نمره"
             android:textColor="@color/white" />
+
+
     </RelativeLayout>
 
 

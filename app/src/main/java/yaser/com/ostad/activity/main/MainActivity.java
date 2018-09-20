@@ -28,6 +28,7 @@ import yaser.com.ostad.activity.azmoon.AzmoonActivity;
 import yaser.com.ostad.activity.listdaneshjoo.DaneshjooyanActivity;
 import yaser.com.ostad.activity.message.MessageActivity;
 import yaser.com.ostad.activity.profile.ProfileActivity;
+import yaser.com.ostad.activity.taklif.TaklifActivity;
 import yaser.com.ostad.activity.vaziat.VaziatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -158,6 +159,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(_this, VaziatActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        takalif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(_this, TaklifActivity.class);
                 startActivity(myIntent);
             }
         });
