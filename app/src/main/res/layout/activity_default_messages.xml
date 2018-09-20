@@ -46,14 +46,16 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/imageView"
-                    android:text="مجید صدرایی"
+                    android:layout_marginRight="8dp"
+                    android:text="نام دانشجو"
                     android:textColor="@android:color/white"
-                    android:textSize="22dp" />
+                    android:textSize="18dp" />
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:padding="4dp"
                     android:layout_alignParentRight="true"
                     app:srcCompat="@drawable/ic_person" />
             </RelativeLayout>

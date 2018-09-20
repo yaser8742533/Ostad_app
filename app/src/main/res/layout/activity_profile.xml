@@ -56,15 +56,11 @@
                             android:scaleType="center"
                             android:src="@drawable/ic_chevron_left_black_24dp" />
 
-                        <TextView
+                        <TextSwitcher
                             android:id="@+id/title_toolbar"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="پروفایل من"
-                            android:textColor="@android:color/white"
-                            android:textSize="22dp" />
+                            android:layout_centerVertical="true" />
                     </RelativeLayout>
 
 
@@ -283,6 +279,7 @@
                         android:background="#85bdbdbd" />
 
                     <Button
+                        android:id="@+id/see_all"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"

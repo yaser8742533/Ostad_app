@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.Messenger.DemoMessagesActivity;
@@ -26,6 +27,7 @@ public class MessageActivity extends DemoMessagesActivity
         MessageInput.TypingListener {
 
     private MessagesList messagesList;
+    ImageView bck;
 
     public static void open(Context context) {
         context.startActivity(new Intent(context, MessageActivity.class));
@@ -63,6 +65,14 @@ public class MessageActivity extends DemoMessagesActivity
         input.setInputListener(this);
         input.setTypingListener(this);
         input.setAttachmentsListener(this);
+
+        bck = findViewById(R.id.bck);
+        bck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
