@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 1500;
     ConstraintLayout container;
     FragmentManager fm;
-    ImageView takalif, azmoon, payam, vaziat, daneshjoo;
+    ImageView takalif, azmoon, payam, vaziat, daneshjoo, img1;
     MainActivity _this = this;
     Fragment splash, phone, login;
     Boolean doubleBackToExitPressedOnce = false;
@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         tv_daneshjoo = findViewById(R.id.tv_daneshjooyan);
         tv_share = findViewById(R.id.tv_share);
         tv_about = findViewById(R.id.tv_about);
+        img1 = findViewById(R.id.img1);
 
     }
 
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(_this).load(R.drawable.center).into(payam);
         Glide.with(_this).load(R.drawable.bottomright).into(vaziat);
         Glide.with(_this).load(R.drawable.bottomleft).into(daneshjoo);
+        Glide.with(_this).load(R.drawable.man).into(img1);
     }
 
     void show_splash() {
@@ -114,8 +116,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_main, phone, "phone");
         fragmentTransaction.commit();
     }
-
-
     public void show_login() {
         login = new LoginFragment();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
@@ -123,14 +123,12 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_main, login, "login");
         fragmentTransaction.commit();
     }
-
     public void close_login() {
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.remove(login);
         fragmentTransaction.commit();
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
-
     void click() {
         azmoon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,13 +168,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
-    }
-
-
     void drawer_click() {
         tv_azmoon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,24 +195,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-
-
+        tv_payam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, PayamActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        tv_takalif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, TaklifActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
-
     void sliderinit() {
         SliderLayout sliderLayout = findViewById(R.id.slider);
-   /*     TextSliderView sliderView = new TextSliderView(_this);
-
-        sliderView
-                .image(R.drawable.bg_custom_incoming_message)
-                .setBackgroundColor(Color.WHITE)
-                .setProgressBarVisible(true);
-
-        //add your extra information
-        sliderView.bundle(new Bundle());
-        sliderView.getBundle().putString("extra", "متن ساختگی میباشد");
-        sliderLayout.addSlider(sliderView);*/
-
 
         TextSliderView sliderView = new TextSliderView(this);
 
@@ -257,6 +249,10 @@ public class MainActivity extends AppCompatActivity {
         sliderLayout.setDuration(3000);
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+    }
     @Override
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();

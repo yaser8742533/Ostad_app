@@ -22,9 +22,14 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.bumptech.glide.Glide;
+
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
+import yaser.com.ostad.activity.azmoon.AzmoonActivity;
 import yaser.com.ostad.activity.listdaneshjoo.DaneshjooyanActivity;
+import yaser.com.ostad.activity.message.PayamActivity;
+import yaser.com.ostad.activity.taklif.TaklifActivity;
 import yaser.com.ostad.library.RtLizerLibrary.ActionBarRtlizer;
 import yaser.com.ostad.library.RtLizerLibrary.RtlizeEverything;
 
@@ -35,9 +40,10 @@ public class ProfileActivity extends AppCompatActivity {
     TextSwitcher toolbar_title;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
-    ImageView bck;
+    ImageView bck, img1;
     ProfileActivity _this = this;
     Button all;
+    TextView tv_profile, tv_payam, tv_takalif, tv_azmoon, tv_daneshjoo, tv_share, tv_about;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         init();
         createLayout();
+        drawer_click();
         click();
     }
 
@@ -54,7 +61,58 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar_title = findViewById(R.id.title_toolbar);
         bck = findViewById(R.id.bck);
         all = findViewById(R.id.see_all);
+        ///drawer
+        tv_profile = findViewById(R.id.tv_profile);
+        tv_payam = findViewById(R.id.tv_payam);
+        tv_takalif = findViewById(R.id.tv_takalif);
+        tv_azmoon = findViewById(R.id.tv_azmoonha);
+        tv_daneshjoo = findViewById(R.id.tv_daneshjooyan);
+        tv_share = findViewById(R.id.tv_share);
+        tv_about = findViewById(R.id.tv_about);
+        img1 = findViewById(R.id.img1);
 
+    }
+
+    void drawer_click() {
+
+        Glide.with(_this).load(R.drawable.man).into(img1);
+
+        tv_profile.setTextColor(getResources().getColor(R.color.colorPrimaryLight));
+        tv_profile.setEnabled(false);
+
+        tv_azmoon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, AzmoonActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        tv_daneshjoo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, DaneshjooyanActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        tv_payam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, PayamActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        tv_takalif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, TaklifActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     void click() {
@@ -72,6 +130,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void attachBaseContext(Context newBase) {

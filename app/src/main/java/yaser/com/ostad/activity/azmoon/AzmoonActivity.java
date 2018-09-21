@@ -3,6 +3,7 @@ package yaser.com.ostad.activity.azmoon;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,22 +24,29 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.bumptech.glide.Glide;
+
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
+import yaser.com.ostad.activity.listdaneshjoo.DaneshjooyanActivity;
+import yaser.com.ostad.activity.message.PayamActivity;
+import yaser.com.ostad.activity.profile.ProfileActivity;
+import yaser.com.ostad.activity.taklif.TaklifActivity;
 import yaser.com.ostad.library.RtLizerLibrary.ActionBarRtlizer;
 import yaser.com.ostad.library.RtLizerLibrary.RtlizeEverything;
 
 public class AzmoonActivity extends AppCompatActivity {
 
 
+    public Toolbar toolbar;
+    public TextSwitcher toolbar_title;
     FragmentManager fm;
     AzmoonActivity _this = this;
     Fragment dore_ha, jalasat, azmoon, daneshjoo;
-    public Toolbar toolbar;
-    public TextSwitcher toolbar_title;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
-    ImageView bck;
+    ImageView bck, img1;
+    TextView tv_profile, tv_payam, tv_takalif, tv_azmoon, tv_daneshjoo, tv_share, tv_about;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,7 @@ public class AzmoonActivity extends AppCompatActivity {
         init();
         createLayout();
         show_dore_ha();
+        drawer_click();
         click();
     }
 
@@ -56,6 +65,15 @@ public class AzmoonActivity extends AppCompatActivity {
         toolbar_title = findViewById(R.id.title_toolbar);
         bck = findViewById(R.id.bck);
 
+        ///drawer
+        tv_profile = findViewById(R.id.tv_profile);
+        tv_payam = findViewById(R.id.tv_payam);
+        tv_takalif = findViewById(R.id.tv_takalif);
+        tv_azmoon = findViewById(R.id.tv_azmoonha);
+        tv_daneshjoo = findViewById(R.id.tv_daneshjooyan);
+        tv_share = findViewById(R.id.tv_share);
+        tv_about = findViewById(R.id.tv_about);
+        img1 = findViewById(R.id.img1);
     }
 
     void click() {
@@ -109,6 +127,48 @@ public class AzmoonActivity extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+    }
+
+    void drawer_click() {
+
+        Glide.with(_this).load(R.drawable.man).into(img1);
+
+        tv_azmoon.setTextColor(getResources().getColor(R.color.colorPrimaryLight));
+        tv_azmoon.setEnabled(false);
+
+        tv_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, ProfileActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        tv_daneshjoo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, DaneshjooyanActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        tv_payam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, PayamActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        tv_takalif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, TaklifActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     private void createLayout() {

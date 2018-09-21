@@ -8,22 +8,20 @@
 
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/img1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="24dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/man" />
+        android:layout_marginTop="24dp" />
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/imageView1"
-        android:layout_alignTop="@id/imageView1"
+        android:layout_alignBottom="@id/img1"
+        android:layout_alignTop="@id/img1"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/imageView1"
+        android:layout_toLeftOf="@+id/img1"
         android:gravity="center"
         android:text="نام استاد"
         android:textColor="@color/white"

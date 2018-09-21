@@ -3,6 +3,7 @@ package yaser.com.ostad.activity.listdaneshjoo;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,8 +25,14 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.bumptech.glide.Glide;
+
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
+import yaser.com.ostad.activity.azmoon.AzmoonActivity;
+import yaser.com.ostad.activity.message.PayamActivity;
+import yaser.com.ostad.activity.profile.ProfileActivity;
+import yaser.com.ostad.activity.taklif.TaklifActivity;
 import yaser.com.ostad.library.RtLizerLibrary.ActionBarRtlizer;
 import yaser.com.ostad.library.RtLizerLibrary.RtlizeEverything;
 
@@ -36,11 +43,13 @@ public class DaneshjooyanActivity extends AppCompatActivity {
     public TextSwitcher toolbar_title;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
-    ImageView bck;
+    ImageView bck, img1;
     FragmentManager fm;
     Fragment daneshjoo;
     Button btn1, btn2, btn3, btn_all;
     DaneshjooyanActivity _this = this;
+    TextView tv_profile, tv_payam, tv_takalif, tv_azmoon, tv_daneshjoo, tv_share, tv_about;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,7 @@ public class DaneshjooyanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daneshjoo);
         init();
         createLayout();
+        drawer_click();
         click();
     }
 
@@ -60,6 +70,16 @@ public class DaneshjooyanActivity extends AppCompatActivity {
         btn3 = findViewById(R.id.btn3);
         btn_all = findViewById(R.id.btn4);
         toolbar_title = findViewById(R.id.title_toolbar);
+
+        ///drawer
+        tv_profile = findViewById(R.id.tv_profile);
+        tv_payam = findViewById(R.id.tv_payam);
+        tv_takalif = findViewById(R.id.tv_takalif);
+        tv_azmoon = findViewById(R.id.tv_azmoonha);
+        tv_daneshjoo = findViewById(R.id.tv_daneshjooyan);
+        tv_share = findViewById(R.id.tv_share);
+        tv_about = findViewById(R.id.tv_about);
+        img1 = findViewById(R.id.img1);
 
     }
 
@@ -107,6 +127,48 @@ public class DaneshjooyanActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.daneshjooyan_frame, daneshjoo, "daneshjoo");
         fragmentTransaction.addToBackStack("daneshjoo");
         fragmentTransaction.commit();
+    }
+
+    void drawer_click() {
+
+        Glide.with(_this).load(R.drawable.man).into(img1);
+
+        tv_daneshjoo.setTextColor(getResources().getColor(R.color.colorPrimaryLight));
+        tv_daneshjoo.setEnabled(false);
+
+        tv_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, ProfileActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        tv_azmoon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, AzmoonActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        tv_payam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, PayamActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        tv_takalif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                Intent myIntent = new Intent(_this, TaklifActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     @Override

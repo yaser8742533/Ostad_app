@@ -2,5 +2,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:textColor="@color/colorText1"
-    android:textSize="20sp" />
+    android:textColor="@drawable/textcolor_tv"
+    android:textSize="18dp" />

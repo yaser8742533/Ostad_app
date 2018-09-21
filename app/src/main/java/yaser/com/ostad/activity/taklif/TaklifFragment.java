@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import yaser.com.ostad.R;
 import yaser.com.ostad.activity.taklif.viewpager.TaklifViewPagerAdapter;
+import yaser.com.ostad.application.MyGlobals;
 
 public class TaklifFragment extends Fragment {
 
@@ -48,7 +49,7 @@ public class TaklifFragment extends Fragment {
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setupWithViewPager(viewPager);
-        //MyGlobals.applyFontedTab(getActivity(), viewPager, tabLayout);
+        MyGlobals.applyFontedTab(getActivity(), viewPager, tabLayout);
 
         viewPager.setCurrentItem(1);
 

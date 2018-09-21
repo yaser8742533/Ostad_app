@@ -23,7 +23,7 @@ public class JalasatTaklifAdapter extends RecyclerView.Adapter<JalasatTaklifAdap
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.jalasat_listitem, parent, false);
+        itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.taklifjalasat_listitem, parent, false);
         return new ViewHolder(itemView);
     }
 
