@@ -26,7 +26,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import yaser.com.ostad.R;
 import yaser.com.ostad.activity.azmoon.AzmoonActivity;
 import yaser.com.ostad.activity.listdaneshjoo.DaneshjooyanActivity;
-import yaser.com.ostad.activity.message.MessageActivity;
+import yaser.com.ostad.activity.message.PayamActivity;
 import yaser.com.ostad.activity.profile.ProfileActivity;
 import yaser.com.ostad.activity.taklif.TaklifActivity;
 import yaser.com.ostad.activity.vaziat.VaziatActivity;
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         payam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(_this, MessageActivity.class);
+                Intent myIntent = new Intent(_this, PayamActivity.class);
                 startActivity(myIntent);
             }
         });
