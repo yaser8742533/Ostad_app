@@ -32,20 +32,29 @@ public class TaklifDadeAdapter extends RecyclerView.Adapter<TaklifDadeAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        if (position >= 5) {
+        if (position >= 3) {
             holder.moshahede.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
             holder.moshahede.setText("مشاهده نمره");
         } else {
             holder.moshahede.setText("مشاهده پاسخ");
             holder.moshahede.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
         }
-        if (position >= 9) {
+        if (position >= 8) {
             holder.alert.setVisibility(View.VISIBLE);
         }
 
         holder.moshahede.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (position < 3) {
+                    context.show_daneshjoo1();
+                } else if (position < 5) {
+                    context.show_daneshjoo2("three");
+                } else if (position < 8) {
+                    context.show_daneshjoo2("one");
+                } else {
+                    context.show_daneshjoo2("two");
+                }
 
             }
         });

@@ -35,7 +35,7 @@ public class TaklifActivity extends AppCompatActivity {
     public TextSwitcher toolbar_title;
     FragmentManager fm;
     TaklifActivity _this = this;
-    Fragment dore_ha, jalasat, taklif, daneshjoo;
+    Fragment dore_ha, jalasat, taklif, daneshjoo1, daneshjoo2;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     ImageView bck;
@@ -95,6 +95,28 @@ public class TaklifActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    public void show_daneshjoo1() {
+        toolbar_title.setText("نام دانشجو");
+        daneshjoo1 = new TaklifDaneshjooFragment();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
+        fragmentTransaction.add(R.id.frame_taklif, daneshjoo1, "daneshjoo1");
+        fragmentTransaction.addToBackStack("daneshjoo1");
+        fragmentTransaction.commit();
+    }
+
+    public void show_daneshjoo2(String type) {
+        Bundle bundle = new Bundle();
+        bundle.putString("type", type);
+        toolbar_title.setText("نام دانشجو");
+        daneshjoo2 = new NomreDaneshjooFragment();
+        daneshjoo2.setArguments(bundle);
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.animator.enter, R.animator.exit_to_right, R.animator.enter, R.animator.exit_to_right);
+        fragmentTransaction.add(R.id.frame_taklif, daneshjoo2, "daneshjoo2");
+        fragmentTransaction.addToBackStack("daneshjoo2");
+        fragmentTransaction.commit();
+    }
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -177,6 +199,9 @@ public class TaklifActivity extends AppCompatActivity {
             if (count == 0) {
                 super.onBackPressed();
             } else {
+                if (count == 3) {
+                    toolbar_title.setText("تکالیف");
+                }
                 getSupportFragmentManager().popBackStack();
             }
         }
